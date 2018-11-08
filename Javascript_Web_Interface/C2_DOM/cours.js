@@ -45,3 +45,5 @@ console.log(document.querySelector("ul").id);
 
 // L'attribut href du premier lien
 console.log(document.querySelector("a").href);
+
+console.log('test');
