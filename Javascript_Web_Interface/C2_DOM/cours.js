@@ -47,3 +47,13 @@ console.log(document.querySelector("ul").id);
 console.log(document.querySelector("a").href);
 
 console.log('test');
+
+if (document.querySelector("a").hasAttribute("target")) {
+
+    console.log("Le premier lien possède l'attribut target");
+
+} else {
+
+    console.log("Le premier lien ne possède pas l'attribut target");
+
+}
