@@ -11,7 +11,6 @@
 }
 function possede(instrument, type) {
 	var checkInst = document.getElementById(instrument);
-	console.log(checkInst);
 	if (checkInst != null) {
 		var checkType = document.getElementById(instrument).getAttribute("class").includes(type);
 		console.log (checkType);
