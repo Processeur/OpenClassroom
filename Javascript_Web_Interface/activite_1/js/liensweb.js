@@ -26,14 +26,14 @@ var listeLiens = [
 
 // TODO : compléter ce fichier pour ajouter les liens à la page web
 
-console.log (listeLiens[0].titre);
-
 for (i = 0 ; i < listeLiens.length ; i++ ) {
+
     //Création du paragraphe
     var parElt = document.createElement("p");
     parElt.id = "Par"+i;
     parElt.style.backgroundColor = "white";
     parElt.style.padding = "10px";
+
     //Création du Titre
     //Contenu
     var titleElt = document.createElement("a");
@@ -44,10 +44,12 @@ for (i = 0 ; i < listeLiens.length ; i++ ) {
     titleElt.style.fontWeight = "bold";
     titleElt.style.textDecoration = "none";
     titleElt.style.lineHeight = "24px";
+
     //Création de l'url
     //Contenu
     var urlElt = document.createElement("a");
     urlElt.textContent = " " + listeLiens[i].url;
+    
     //Création de l'auteur
     //Contenu
     var auteurElt = document.createElement("a");
@@ -61,6 +63,4 @@ for (i = 0 ; i < listeLiens.length ; i++ ) {
     document.getElementById(parElt.id).appendChild(urlElt);
     document.getElementById(parElt.id).appendChild(document.createElement("br"));
     document.getElementById(parElt.id).appendChild(auteurElt);
-
-
 };
