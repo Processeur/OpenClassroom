@@ -29,19 +29,33 @@ var listeLiens = [
 console.log (listeLiens[0].titre);
 
 for (i = 0 ; i < listeLiens.length ; i++ ) {
+    //Création du paragraphe
     var parElt = document.createElement("p");
     parElt.id = "Par"+i;
     parElt.style.backgroundColor = "white";
     parElt.style.padding = "10px";
+    //Création du Titre
+    //Contenu
     var titleElt = document.createElement("a");
+    titleElt.textContent = listeLiens[i].titre;
+    titleElt.href = listeLiens[i].url;
+    //Style
     titleElt.style.color = "#428bca";
     titleElt.style.fontWeight = "bold";
-    titleElt.textContent = listeLiens[i].titre;
+    titleElt.style.textDecoration = "none";
+    titleElt.style.lineHeight = "24px";
+    //Création de l'url
+    //Contenu
     var urlElt = document.createElement("a");
     urlElt.textContent = " " + listeLiens[i].url;
+    //Création de l'auteur
+    //Contenu
     var auteurElt = document.createElement("a");
-    auteurElt.textContent = listeLiens[i].auteur;
-    
+    auteurElt.textContent = "Ajouté par " +listeLiens[i].auteur;
+    //Style
+    auteurElt.style.lineHeight = "24px";
+
+    //Affichage des éléments
     document.body.appendChild(parElt);
     document.getElementById(parElt.id).appendChild(titleElt);
     document.getElementById(parElt.id).appendChild(urlElt);
