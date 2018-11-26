@@ -64,3 +64,7 @@ for (i = 0 ; i < listeLiens.length ; i++ ) {
     document.getElementById(parElt.id).appendChild(document.createElement("br"));
     document.getElementById(parElt.id).appendChild(auteurElt);
 };
+var test = document.getElementsByTagName("p")[0];
+    console.log(test);
+    var test2 = titleElt.style.color;
+    console.log(test2);
