@@ -2,25 +2,30 @@ var menuElt = document.getElementById("desserts");
 
 
 
-function addDessert(e){
+function addDessert(dessertElt){
+	var testElt =  document.getElementById(dessertElt);
 	var saisieElt = prompt("Veuillez entrer un de vos desserts préférés:");
-	var dessertElt = document.createElement("li");
 
-	var linkElt = document.createElement("a");
-	linkElt.textContent = saisieElt;
-	linkElt.href = "#"
-	linkElt.id = saisieElt;
+	if (testElt === null){
+		var dessertElt = document.createElement("li");
 
-	menuElt.appendChild(dessertElt);
-	dessertElt.appendChild(linkElt);
+		var linkElt = document.createElement("a");
+		linkElt.textContent = saisieElt;
+		linkElt.href = "#"
+		linkElt.id = saisieElt;
+		linkElt.addEventListener("click", function (e) {
+			var replaceElt = document.getElementsByTagName("a");
+			addDessert(saisieElt)
+			e.preventDefault();
+		});
+
+		menuElt.appendChild(dessertElt);
+		dessertElt.appendChild(linkElt);
+	} else {
+		var linkElt = document.getElementById(dessertElt);
+		linkElt.textContent = saisieElt;
+		linkElt.id = saisieElt
+	};
 };
-
 var buttonElt = document.querySelector("button");
 buttonElt.addEventListener("click", addDessert);
-
-
-
- document.getElementsByTagName("li").addEventListener("click", function (e) {
-     console.log("Continuez plutôt à lire le cours ;)");
-     e.preventDefault(); // Annulation de la navigation vers la cible du lien
- });
