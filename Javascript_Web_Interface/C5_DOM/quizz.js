@@ -13,3 +13,17 @@ var questions = [
         reponse: "La lettre N"
     }
 ];
+
+for (i = 0 ; i < questions.length ; i++) {
+    var parElt=document.createElement("p");
+    var questPres = document.createElement("span");
+    questPres.textContent = "Question " + Number(i+1) + ": "
+    questPres.style = "font-weight:bold"
+    var questElt = document.createElement("a");
+    questElt.textContent = questions[i].enonce;
+    questElt.style = "font-style:italic";
+
+    document.getElementById("contenu").appendChild(parElt);
+    parElt.appendChild(questPres)
+    parElt.appendChild(questElt);
+};
