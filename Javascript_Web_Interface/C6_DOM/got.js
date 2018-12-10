@@ -34,11 +34,63 @@ function getPersonnages(codeMaison) {
     }
 }
 
-var form = document.getElementById("maison");
+var formElt = document.querySelector("form");
+var listElt = document.getElementById("maison");
 
 maisons.forEach(function(e){
-    optionElt = document.createElement("option");
+    var optionElt = document.createElement("option");
     optionElt.value = e.code;
     optionElt.textContent = e.nom;
-    form.appendChild(optionElt);
-})
+    listElt.appendChild(optionElt);
+});
+
+var persoListElt = document.getElementById("persos");
+
+listElt.addEventListener("change", function(e) {
+    var countList = document.querySelectorAll("li");
+    for (i = 0 ; i < countList.length ; i++) {
+        persoListElt.removeChild(persoListElt.childNodes[0]);
+    };
+    getPersonnages(formElt.elements.maison.value).forEach(function(e) {
+        persoElt = document.createElement("li");
+        persoElt.textContent = e;
+        persoListElt.appendChild(persoElt);
+    });
+
+});
+
+
+// Solution proposée
+
+
+// Crée et renvoi un élément HTML <option>
+function creerElementOption(texte, valeur) {
+    var element = document.createElement("option");
+    element.textContent = texte;
+    element.value = valeur;
+    return element;
+}
+
+// Crée et renvoie un élément HTML <li>
+function creerElementLi(texte) {
+    var element = document.createElement("li");
+    element.textContent = texte;
+    return element;
+}
+
+var maisonElt = document.querySelector("select");
+// Remplit la liste déroulante des maisons
+maisons.forEach(function (maison) {
+    maisonElt.appendChild(creerElementOption(maison.nom, maison.code));
+});
+
+maisonElt.addEventListener("change", function (e) {
+    // La valeur cible de l'évènement est le code de la maison
+    var persos = getPersonnages(e.target.value);
+    var persosElt = document.getElementById("persos");
+    persosElt.innerHTML = ""; // Vidage de la liste
+    // Ajout de chaque personnage à la liste
+    persos.forEach(function (perso) {
+        persosElt.appendChild(creerElementLi(perso));
+    });
+});
